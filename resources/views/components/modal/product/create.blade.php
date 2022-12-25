@@ -20,9 +20,9 @@
                         <label>Minimal</label>
                         <select class="form-control select2" style="width: 100%;" name="category" id="category">
                             <option value="" selected disabled>Pilih</option>
-                            <option value="App">App</option>
-                            <option value="Card">Card</option>
-                            <option value="Web">Web</option>
+                            <option value="Makanan_Berat">Makanan Berat</option>
+                            <option value="Makanan_Penutup">Makanan Penutup</option>
+                            <option value="Minuman">Minuman</option>
                         </select>
                     </div>
 
