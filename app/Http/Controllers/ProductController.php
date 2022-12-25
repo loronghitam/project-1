@@ -54,7 +54,7 @@ class ProductController extends Controller
                 DB::transaction(function () use ($request) {
                     $extension = $request->file('image')->getClientOriginalExtension();
                     $image = strtotime(date('Y-m-d H:i:s')) . '.' . $extension;
-                    $destination = base_path('public/images/product/');
+                    $destination = '/home/uasmasu1/public_html/images/product/';
                     $slug = Str::slug($request->title);
                     Product::create([
                         'title' => $request->title,
@@ -134,7 +134,7 @@ class ProductController extends Controller
                         $oldImage = $product->image;
 
                         if ($oldImage) {
-                            $pleaseRemove = base_path('public/images/blog/') . $oldImage;
+                            $pleaseRemove = '/home/uasmasu1/public_html/images/blog/' . $oldImage;
 
                             if (file_exists($pleaseRemove)) {
                                 unlink($pleaseRemove);
@@ -143,7 +143,7 @@ class ProductController extends Controller
 
                         $extension = $request->file('image')->getClientOriginalExtension();
                         $image = strtotime(date('Y-m-d H:i:s')) . '.' . $extension;
-                        $destination = base_path('public/images/product/');
+                        $destination = '/home/uasmasu1/public_html/images/product/';
 
                         Product::where('id', $id)->update([
                             'image' => $image,
@@ -179,7 +179,7 @@ class ProductController extends Controller
             }
             $oldImage = $data->image;
             if ($oldImage) {
-                $pleaseRemove = base_path('public/images/product/') . $oldImage;
+                $pleaseRemove = '/home/uasmasu1/public_html/images/product/' . $oldImage;
 
                 if (file_exists($pleaseRemove)) {
                     unlink($pleaseRemove);
