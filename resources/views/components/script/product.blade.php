@@ -28,7 +28,7 @@
 
         $.ajax({
             type: "post",
-            url: "/products",
+            url: "/produks",
             data: formData,
             dataType: "json",
             cache: false,
@@ -69,12 +69,15 @@
 
         $.ajax({
             type: "get",
-            url: `/products/${product_id}`,
+            url: `/produks/${product_id}`,
             dataType: "json",
             success: function(response) {
                 $('#title-edit').val(response.title);
                 $('#category-edit').val(response.category);
-                // $('#edit-image').val(response.file);
+                $('#body-edit').summernote({
+                    height: 300
+                });
+                $('#body').summernote('reset');
 
                 Swal.close();
                 $('#editModal').modal('show');
@@ -84,7 +87,7 @@
     }
     const deleteData = (id) => {
         Swal.fire({
-            title: 'Apa anda yakin untuk menghapus products ini?',
+            title: 'Apa anda yakin untuk menghapus produks ini?',
             icon: 'warning',
             showCancelButton: true,
             confirmButtonText: 'Ya',
@@ -104,7 +107,7 @@
 
                 $.ajax({
                     type: "delete",
-                    url: `/products/${id}`,
+                    url: `/produks/${id}`,
                     dataType: "json",
                     success: function(response) {
                         Swal.close();
@@ -129,9 +132,6 @@
 
     }
     $(function() {
-
-        $('#body-edit').summernote();
-
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': '{{ csrf_token() }}'
@@ -154,7 +154,7 @@
 
             $.ajax({
                 type: "post",
-                url: `/products/${product_id}`,
+                url: `/produks/${product_id}`,
                 data: formData,
                 dataType: "json",
                 cache: false,
@@ -196,7 +196,7 @@
             responsive: true,
             serverSide: true,
             ajax: {
-                url: '/products/all'
+                url: '/produks/all'
             },
             "columns": [{
                 data: 'DT_RowIndex',

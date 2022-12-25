@@ -17,13 +17,18 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="category">Category</label>
+                        <label>Minimal</label>
                         <select class="form-control select2" style="width: 100%;" name="category" id="category-edit">
                             <option value="" selected disabled>Pilih</option>
-                            <option value="Packaging">Packaging</option>
-                            <option value="Mockup">Typography</option>
-                            <option value="Photography">Photography</option>
+                            <option value="App">App</option>
+                            <option value="Card">Card</option>
+                            <option value="Web">Web</option>
                         </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Content</label>
+                        <textarea id="body-edit" name="body"></textarea>
                     </div>
 
                     <div class="form-group">

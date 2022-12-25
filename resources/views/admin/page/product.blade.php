@@ -1,4 +1,4 @@
-@extends('admin.layout.app')
+@extends('layout.admin')
 
 @section('title')
     <div class="row mb-2">
@@ -16,7 +16,6 @@
 
 @section('content')
 {{--    @php @endphp--}}
-    <div class="container-fluid">
         <!-- Main row -->
         <section class="section">
             <div class="card">
@@ -45,7 +44,6 @@
                 </div>
             </div>
         </section>
-    </div><!-- /.container-fluid -->
 @include('components.modal.product.create')
 @include('components.modal.product.edit')
 

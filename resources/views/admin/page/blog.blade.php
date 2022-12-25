@@ -33,6 +33,7 @@
                             <tr>
                                 <th width="5%">No</th>
                                 <th>Title</th>
+                                <th>Category</th>
                                 <th width="20%">Image</th>
                                 <th width="20%">Aksi</th>
                             </tr>
