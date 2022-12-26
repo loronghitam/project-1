@@ -20,4 +20,11 @@ class PageController extends Controller
         return view('detail', ['product' => $product]);
     }
 
+    public function jumlahProduct()
+    {
+        $product = Product::all()->count();
+
+        return view('admin.dashboard', ['product' => $product]);
+    }
+
 }

@@ -11,7 +11,8 @@ Route::get('/product/{slug}', [PageController::class, 'productDetails']);
 
 Route::get('/login', function () {
     return view('login');
-});
+})->middleware('guest');
+
 Route::post('/login', [AuthController::class,'login'])->name('login');
 
 Route::middleware('auth')->group(function () {
@@ -22,9 +23,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/produks/{slug}', [ProductController::class, 'destroy']);
 
 
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard');
+    Route::get('/dashboard', [PageController::class,'jumlahProduct']);
+
+    Route::get('/user', function () {
+        return view('admin.page.profile');
     });
+
+    Route::post('/user', [AuthController::class, 'user'])->name('user');
 
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });

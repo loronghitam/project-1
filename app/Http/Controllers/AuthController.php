@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
@@ -39,6 +41,20 @@ class AuthController extends Controller
     {
         Auth::logout();
         return redirect()->to('/');
+    }
+
+    public function user(Request $requeset)
+    {
+        $confirm = Hash::check($requeset->cpassword, auth()->user()->password);
+        if ($confirm) {
+            User::where('id','=', auth()->user()->id)->update([
+                'email' => ($requeset->email) ? $requeset->email : auth()->user()->email,
+                'password' => ($requeset->password) ? Hash::make($requeset->password) : auth()->user()->password,
+            ]);
+
+            return back()->with('success', 'Perbuah berhasil');
+        }
+        return back()->with('error', 'Confirm password salah');
     }
 
 }
