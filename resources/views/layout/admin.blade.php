@@ -3,7 +3,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -63,6 +62,26 @@
 
             <!-- Topbar -->
             <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100">
+                    <div class="input-group">
+                            <button class="btn btn-primary" id="play" onclick="audiostart()">
+                                <i class="fa fa-play-circle" id="pb"></i>
+                            </button>
+                        <div class="form-group ml-3">
+                            <select class="form-control select2" id="select" onchange="selectMusic()">
+                                <option selected disabled>Pilih Lagu</option>
+                                <option value="Naif-Benci-Untuk-Mencinta">Naif - Benci Untuk Mencinta</option>
+                                <option value="Naif-Dimana-Aku-Di-sini">Naif - Dimana Aku Di sini</option>
+                                <option value="Naif-Jikalau">Naif - Jikalau</option>
+                                <option value="Pamungkas-Kenangan-Manis">Pamungkas - Kenangan Manis</option>
+                                <option value="Payung-Teduh-Akad">Payung - Teduh Akad</option>
+                                <option value="Payung-Teduh-Angin-Pujaan-Hujan">Payung - Teduh Angin Pujaan Hujan</option>
+                                <option value="Payung-Teduh-Diam-Keroncong">Payung - Teduh Diam Keroncong</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
                     <div class="topbar-divider d-none d-sm-block"></div>
@@ -152,20 +171,44 @@
         </div>
     </div>
 </div>
-
 <!-- Bootstrap core JavaScript-->
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script src="{{asset('asset/admin/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
+<script>
+    var music= new Audio ();
+    const selectMusic = () => {
+        const selected = $('#select').val()
+        var className = $('#pb').attr('class');
+        music.src="music/" + selected + ".mp3"
+        if(className === 'fa fa-pause-circle') {
+            music.src="music/" + selected + ".mp3"
+            music.play()
+        }
+    }
+    music.loop=true;
+
+    const audiostart = () => {
+        var $check = $('#play');
+        $check.on("click");
+        if(music.paused){
+            music.play();
+            $('#pb').removeClass('fa fa-play-circle')
+            $('#pb').addClass('fa fa-pause-circle')
+        } else {
+            music.pause();
+            $('#pb').removeClass('fa fa-pause-circle')
+            $('#pb').addClass('fa fa-play-circle')
+        }
+    }
+
+</script>
 
 <!-- Custom scripts for all pages-->
 <script src="{{asset('asset/admin/js/sb-admin-2.min.js')}}"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-
-
-
 
 {{-- Datatables --}}
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>

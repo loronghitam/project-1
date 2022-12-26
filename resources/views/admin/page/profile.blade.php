@@ -78,7 +78,7 @@
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                   id="exampleInputPassword" placeholder="Cofirm Password" name="cpassword">
+                                                   id="exampleInputPassworda" placeholder="Cofirm Password" name="cpassword">
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-user btn-block">Save</button>
                                     </form>
