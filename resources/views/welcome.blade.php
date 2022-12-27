@@ -117,7 +117,7 @@
                 <p>Selamat datang di toko Devi Nuryanti Platform digital terpadu untuk mengelola kebutuhan makanan sehari-hari Anda</p>
             </div>
             <div class="text-center">
-                <iframe width="1000" height="315" src="https://www.youtube.com/embed/Vf0LO8M8870"
+                <iframe width="1000" height="315" src="https://www.youtube.com/embed/cCMEm3pvokQ"
                         title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                 </iframe>
